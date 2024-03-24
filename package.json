@@ -1,0 +1,13 @@
+{
+  "name": "avc",
+  "packageManager": "yarn@4.0.2",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "playground"
+  ],
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.0"
+  }
+}
