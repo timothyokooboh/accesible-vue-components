@@ -1,0 +1,34 @@
+{
+  "fontFamily": {
+    "roboto": {
+      "value": "Roboto"
+    }
+  },
+  "fontSize": {
+    "body": {
+      "sm": {
+        "value": "12px"
+      },
+      "regular": {
+        "value": "16px"
+      },
+      "md": {
+        "value": "18px"
+      },
+      "lg": {
+        "value": "22px"
+      }
+    },
+    "heading": {
+      "h3": {
+        "value": "30px"
+      },
+      "h2": {
+        "value": "40px"
+      },
+      "h1": {
+        "value": "50px"
+      }
+    }
+  }
+}
