@@ -5,12 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"avc@workspace:.":
+"@ui-library/foundations@workspace:packages/foundations":
   version: 0.0.0-use.local
-  resolution: "avc@workspace:."
-  dependencies:
-    prettier: "npm:^3.2.5"
-    turbo: "npm:^1.13.0"
+  resolution: "@ui-library/foundations@workspace:packages/foundations"
   languageName: unknown
   linkType: soft
 
@@ -93,3 +90,12 @@ __metadata:
   checksum: e2e46d98e3ed8bb02099091fb706372363dc6de6d838e2db4d523cd54a80f66b49fd5cf17d8f39409092368f69857c05e60af2ca5e1b7b9e3d0795ac2240037c
   languageName: node
   linkType: hard
+
+"ui-library@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "ui-library@workspace:."
+  dependencies:
+    prettier: "npm:^3.2.5"
+    turbo: "npm:^1.13.0"
+  languageName: unknown
+  linkType: soft
