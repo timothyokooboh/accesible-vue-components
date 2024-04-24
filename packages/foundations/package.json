@@ -1,4 +1,17 @@
 {
   "name": "@ui-library/foundations",
-  "packageManager": "yarn@4.0.2"
+  "license": "MIT",
+  "version": "0.0.1",
+  "packageManager": "yarn@4.0.2",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.6",
+    "style-dictionary": "^3.9.2",
+    "typescript": "^5.4.5"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "dev": "style-dictionary build && tsc",
+    "build": "style-dictionary build && tsc"
+  }
 }
