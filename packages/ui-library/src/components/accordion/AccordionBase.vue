@@ -12,18 +12,31 @@
 </template>
 
 <script setup lang="ts">
-import { provide } from "vue";
+import { ref, provide } from "vue";
 import type { AccordionItem as AccordionItemType } from "@/types";
 import AccordionItem from "./AccordionItem.vue";
 import { useId } from "@/helpers";
-import { ACCORDION_HEADER } from "@/keys";
+import { ACCORDION_CURRENT_OPEN_PANEL, ACCORDION_HEADER } from "@/keys";
 
-defineProps<{
+const props = defineProps<{
   items?: AccordionItemType[];
+  isSingle?: boolean;
 }>();
 
 const headerClass = useId("accordion-header");
+const currentOpenPanel = ref("");
+const updateCurrentOpenPanel = (value: string) => {
+  if (props.isSingle) {
+    currentOpenPanel.value = value;
+  }
+};
+
 provide(ACCORDION_HEADER, headerClass);
+provide(ACCORDION_CURRENT_OPEN_PANEL, {
+  currentOpenPanel,
+  updateCurrentOpenPanel,
+  isSingle: props.isSingle,
+});
 
 const handleArrowNavigation = (direction: "up" | "down") => {
   const currentFocusedHeader = document.activeElement as HTMLButtonElement;

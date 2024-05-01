@@ -12,8 +12,12 @@
         <slot v-else />
       </div>
 
-      <ChevronDownIcon v-if="isCollapsed" class="h-4" />
-      <ChevronUpIcon v-else class="h-4" />
+      <slot v-if="isCollapsed" name="toggleIcon:collapsed">
+        <ChevronDownIcon v-if="isCollapsed" class="h-4" />
+      </slot>
+      <slot v-else name="toggleIcon:unCollapsed">
+        <ChevronUpIcon class="h-4" />
+      </slot>
     </button>
   </h3>
 </template>

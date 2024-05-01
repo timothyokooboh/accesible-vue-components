@@ -1,6 +1,7 @@
 <template>
   <div class="my-5 mx-4">
     <Accordion
+      isSingle
       class="w-[400px]"
       :items="[
         {
@@ -34,11 +35,15 @@
       ]"
     />
 
-    <Accordion class="w-[400px] mt-5">
+    <Accordion class="w-[400px] mt-5" isSingle>
       <AccordionItem>
-        <AccordionItemHeader>svelte</AccordionItemHeader>
+        <AccordionItemHeader>
+          svelte
+          <template #toggleIcon:collapsed> K </template>
+        </AccordionItemHeader>
         <AccordionItemPanel>
           <div>
+            <button>yello</button>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             rerum, ratione magnam cumque tempora unde placeat minima harum
             suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
@@ -60,7 +65,10 @@
       </AccordionItem>
 
       <AccordionItem>
-        <AccordionItemHeader>Angular</AccordionItemHeader>
+        <AccordionItemHeader>
+          Angular
+          <template #toggleIcon:collapsed> K </template>
+        </AccordionItemHeader>
         <AccordionItemPanel>This is Angular</AccordionItemPanel>
       </AccordionItem>
     </Accordion>

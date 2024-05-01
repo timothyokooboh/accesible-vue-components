@@ -4,7 +4,7 @@
       :id="panelId"
       :aria-labelledby="headerId"
       class="text-grayScale-400 py-[13px] px-[28px]"
-      v-if="!isCollapsed"
+      v-if="isSingle ? panelId === currentOpenPanel : !isCollapsed"
     >
       <p v-if="content" v-html="content" />
 
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { ACCORDION_STATE } from "@/keys";
+import { ACCORDION_CURRENT_OPEN_PANEL, ACCORDION_STATE } from "@/keys";
 import { inject, type Ref } from "vue";
 
 defineProps<{
@@ -26,6 +26,11 @@ const { isCollapsed, panelId, headerId } = inject(ACCORDION_STATE) as {
   isCollapsed: Ref<boolean>;
   panelId: string;
   headerId: string;
+};
+
+const { currentOpenPanel, isSingle } = inject(ACCORDION_CURRENT_OPEN_PANEL) as {
+  currentOpenPanel: string;
+  isSingle: boolean;
 };
 </script>
 

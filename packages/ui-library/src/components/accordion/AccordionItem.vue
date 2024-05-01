@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, provide } from "vue";
+import { ref, provide, inject, type Ref } from "vue";
 import type { AccordionItem } from "@/types";
 import { useId } from "@/helpers";
 
@@ -18,18 +18,35 @@ import {
   AccordionItemHeader,
   AccordionItemPanel,
 } from "@/components/accordion";
-import { ACCORDION_STATE } from "@/keys";
+import { ACCORDION_CURRENT_OPEN_PANEL, ACCORDION_STATE } from "@/keys";
 
 defineProps<{
   item?: AccordionItem;
 }>();
 
-const isCollapsed = ref(true);
-const toggleCollapse = () => {
-  isCollapsed.value = !isCollapsed.value;
-};
 const headerId = useId("accordion-header");
 const panelId = useId("accordion-panel");
+
+const { currentOpenPanel, updateCurrentOpenPanel, isSingle } = inject(
+  ACCORDION_CURRENT_OPEN_PANEL,
+) as {
+  isSingle: boolean;
+  updateCurrentOpenPanel: (value: string) => void;
+  currentOpenPanel: Ref<string>;
+};
+
+const isCollapsed = ref(true);
+const toggleCollapse = () => {
+  if (isSingle) {
+    if (currentOpenPanel.value === panelId) {
+      updateCurrentOpenPanel("");
+    } else {
+      updateCurrentOpenPanel(panelId);
+    }
+  } else {
+    isCollapsed.value = !isCollapsed.value;
+  }
+};
 
 provide(ACCORDION_STATE, {
   isCollapsed,
