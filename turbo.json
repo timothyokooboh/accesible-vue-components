@@ -1,20 +1,20 @@
 {
-    "$schema": "https://turbo.build/schema.json",
-    "pipeline": {
-      "lint": {},
-      "format:check": {},
-      "format:fix": {},
-      "test": {
-        "inputs": ["src/**/*.vue", "src/**/*.ts"],
-        "dependsOn": ["build"]
-      },
-      "dev": {},
-      "build": {
-        "dependsOn": ["^build"]
-      },
-      "deploy": {
-        "dependsOn": ["build", "test", "lint", "format:check"]
-      }
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "lint": {},
+    "format:check": {},
+    "format:fix": {},
+    "test": {
+      "inputs": ["src/**/*.vue", "src/**/*.ts"],
+      "dependsOn": ["build"]
+    },
+    "dev": {},
+    "storybook": {},
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "deploy": {
+      "dependsOn": ["build", "test", "lint", "format:check"]
     }
   }
-  
+}

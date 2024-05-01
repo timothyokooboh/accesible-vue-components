@@ -17,15 +17,16 @@ import { useId } from "@/helpers";
 import {
   AccordionItemHeader,
   AccordionItemPanel,
-} from "@/components/accordion";
+} from "@/ui/accordion/components";
 import { ACCORDION_CURRENT_OPEN_PANEL, ACCORDION_STATE } from "@/keys";
 
 defineProps<{
   item?: AccordionItem;
 }>();
 
-const headerId = useId("accordion-header");
-const panelId = useId("accordion-panel");
+const id = useId();
+const headerId = `accordion-header-${id}`;
+const panelId = `accordion-panel-${id}`;
 
 const { currentOpenPanel, updateCurrentOpenPanel, isSingle } = inject(
   ACCORDION_CURRENT_OPEN_PANEL,

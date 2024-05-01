@@ -16,6 +16,23 @@
     "eslint": "yarn turbo run lint",
     "dev": "yarn turbo run dev",
     "build": "yarn turbo run build",
-    "test": "yarn turbo run test"
-  }
+    "test": "yarn turbo run test",
+    "storybook": "yarn turbo run storybook"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.3.5",
+    "vue": "^3.0.0"
+  },
+  "main": "./dist/ui-library.umd.js",
+  "module": "./dist/ui-library.es.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "component",
+    "library"
+  ]
 }

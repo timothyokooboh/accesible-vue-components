@@ -1,7 +1,6 @@
 <template>
   <div class="my-5 mx-4">
     <Accordion
-      isSingle
       class="w-[400px]"
       :items="[
         {
@@ -18,12 +17,7 @@
             suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
             optio totam! Sapiente, quisquam.
           </div>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            rerum, ratione magnam cumque tempora unde placeat minima harum
-            suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
-            optio totam! Sapiente, quisquam.
-          </div>`,
+          `,
         },
         {
           title: 'React.js',
@@ -55,12 +49,6 @@
             suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
             optio totam! Sapiente, quisquam.
           </div>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            rerum, ratione magnam cumque tempora unde placeat minima harum
-            suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
-            optio totam! Sapiente, quisquam.
-          </div>
         </AccordionItemPanel>
       </AccordionItem>
 
@@ -81,7 +69,7 @@ import {
   AccordionItem,
   AccordionItemHeader,
   AccordionItemPanel,
-} from "@/components/accordion";
+} from "@/ui/accordion/components";
 </script>
 
 <style scoped></style>
