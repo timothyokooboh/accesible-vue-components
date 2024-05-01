@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 24 Apr 2024 14:23:26 GMT
+ * Generated on Tue, 30 Apr 2024 13:43:40 GMT
  */
 
 module.exports = {
@@ -608,142 +608,124 @@ module.exports = {
     }
   },
   "fontSize": {
-    "body": {
-      "sm": {
-        "value": "12px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "12px"
-        },
-        "name": "FontSizeBodySm",
-        "attributes": {
-          "category": "fontSize",
-          "type": "body",
-          "item": "sm"
-        },
-        "path": [
-          "fontSize",
-          "body",
-          "sm"
-        ]
+    "sm": {
+      "value": "12px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "12px"
       },
-      "regular": {
-        "value": "16px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "16px"
-        },
-        "name": "FontSizeBodyRegular",
-        "attributes": {
-          "category": "fontSize",
-          "type": "body",
-          "item": "regular"
-        },
-        "path": [
-          "fontSize",
-          "body",
-          "regular"
-        ]
+      "name": "FontSizeSm",
+      "attributes": {
+        "category": "fontSize",
+        "type": "sm"
       },
-      "md": {
-        "value": "18px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "18px"
-        },
-        "name": "FontSizeBodyMd",
-        "attributes": {
-          "category": "fontSize",
-          "type": "body",
-          "item": "md"
-        },
-        "path": [
-          "fontSize",
-          "body",
-          "md"
-        ]
-      },
-      "lg": {
-        "value": "22px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "22px"
-        },
-        "name": "FontSizeBodyLg",
-        "attributes": {
-          "category": "fontSize",
-          "type": "body",
-          "item": "lg"
-        },
-        "path": [
-          "fontSize",
-          "body",
-          "lg"
-        ]
-      }
+      "path": [
+        "fontSize",
+        "sm"
+      ]
     },
-    "heading": {
-      "h3": {
-        "value": "30px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "30px"
-        },
-        "name": "FontSizeHeadingH3",
-        "attributes": {
-          "category": "fontSize",
-          "type": "heading",
-          "item": "h3"
-        },
-        "path": [
-          "fontSize",
-          "heading",
-          "h3"
-        ]
+    "regular": {
+      "value": "16px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "16px"
       },
-      "h2": {
-        "value": "40px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "40px"
-        },
-        "name": "FontSizeHeadingH2",
-        "attributes": {
-          "category": "fontSize",
-          "type": "heading",
-          "item": "h2"
-        },
-        "path": [
-          "fontSize",
-          "heading",
-          "h2"
-        ]
+      "name": "FontSizeRegular",
+      "attributes": {
+        "category": "fontSize",
+        "type": "regular"
       },
-      "h1": {
-        "value": "50px",
-        "filePath": "src/tokens/typography.json",
-        "isSource": true,
-        "original": {
-          "value": "50px"
-        },
-        "name": "FontSizeHeadingH1",
-        "attributes": {
-          "category": "fontSize",
-          "type": "heading",
-          "item": "h1"
-        },
-        "path": [
-          "fontSize",
-          "heading",
-          "h1"
-        ]
-      }
+      "path": [
+        "fontSize",
+        "regular"
+      ]
+    },
+    "md": {
+      "value": "18px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "18px"
+      },
+      "name": "FontSizeMd",
+      "attributes": {
+        "category": "fontSize",
+        "type": "md"
+      },
+      "path": [
+        "fontSize",
+        "md"
+      ]
+    },
+    "lg": {
+      "value": "22px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "22px"
+      },
+      "name": "FontSizeLg",
+      "attributes": {
+        "category": "fontSize",
+        "type": "lg"
+      },
+      "path": [
+        "fontSize",
+        "lg"
+      ]
+    },
+    "h3": {
+      "value": "30px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "30px"
+      },
+      "name": "FontSizeH3",
+      "attributes": {
+        "category": "fontSize",
+        "type": "h3"
+      },
+      "path": [
+        "fontSize",
+        "h3"
+      ]
+    },
+    "h2": {
+      "value": "40px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "40px"
+      },
+      "name": "FontSizeH2",
+      "attributes": {
+        "category": "fontSize",
+        "type": "h2"
+      },
+      "path": [
+        "fontSize",
+        "h2"
+      ]
+    },
+    "h1": {
+      "value": "50px",
+      "filePath": "src/tokens/typography.json",
+      "isSource": true,
+      "original": {
+        "value": "50px"
+      },
+      "name": "FontSizeH1",
+      "attributes": {
+        "category": "fontSize",
+        "type": "h1"
+      },
+      "path": [
+        "fontSize",
+        "h1"
+      ]
     }
   }
 };

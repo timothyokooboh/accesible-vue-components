@@ -1,5 +1,5 @@
 {
-  "name": "@ui-library/foundations",
+  "name": "@avc/foundations",
   "license": "MIT",
   "version": "0.0.1",
   "packageManager": "yarn@4.0.2",

@@ -1,5 +1,5 @@
 {
-  "name": "ui-library",
+  "name": "avc",
   "packageManager": "yarn@4.0.2",
   "private": true,
   "workspaces": [
@@ -9,5 +9,13 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "turbo": "^1.13.0"
+  },
+  "scripts": {
+    "format:check": "yarn turbo run format:check",
+    "format:fix": "yarn turbo run format:fix",
+    "eslint": "yarn turbo run lint",
+    "dev": "yarn turbo run dev",
+    "build": "yarn turbo run build",
+    "test": "yarn turbo run test"
   }
 }

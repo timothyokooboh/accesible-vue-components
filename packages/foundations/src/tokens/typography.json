@@ -5,30 +5,27 @@
     }
   },
   "fontSize": {
-    "body": {
-      "sm": {
-        "value": "12px"
-      },
-      "regular": {
-        "value": "16px"
-      },
-      "md": {
-        "value": "18px"
-      },
-      "lg": {
-        "value": "22px"
-      }
+    "sm": {
+      "value": "12px"
     },
-    "heading": {
-      "h3": {
-        "value": "30px"
-      },
-      "h2": {
-        "value": "40px"
-      },
-      "h1": {
-        "value": "50px"
-      }
+    "regular": {
+      "value": "16px"
+    },
+    "md": {
+      "value": "18px"
+    },
+    "lg": {
+      "value": "22px"
+    },
+
+    "h3": {
+      "value": "30px"
+    },
+    "h2": {
+      "value": "40px"
+    },
+    "h1": {
+      "value": "50px"
     }
   }
 }

@@ -18,6 +18,13 @@ const flattenValue = (obj) => {
 
   return result;
 };
+const obj = {
+  colors: flattenValue(tokens.colors),
+  fontSize: flattenValue(tokens.fontSize),
+  fontFamily: flattenValue(tokens.fontFamily),
+};
+
+console.log(obj);
 
 module.exports = {
   colors: flattenValue(tokens.colors),
