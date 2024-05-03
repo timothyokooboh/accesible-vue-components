@@ -12,9 +12,6 @@ const meta = {
   component: Accordion,
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  args: {
-    isSingle: false,
-  },
 } satisfies Meta<typeof Accordion>;
 
 export default meta;
