@@ -1,6 +1,7 @@
 <template>
   <Transition name="scale">
     <div
+      data-testid="accordion-panel"
       :id="panelId"
       :aria-labelledby="headerId"
       class="text-grayScale-400 py-[13px] px-[28px]"

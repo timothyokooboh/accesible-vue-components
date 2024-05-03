@@ -7,10 +7,7 @@
     "playground/*"
   ],
   "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
     "prettier": "^3.2.5",
-    "tailwindcss": "^3.4.3",
     "turbo": "^1.13.0"
   },
   "scripts": {
@@ -21,21 +18,5 @@
     "build": "yarn turbo run build",
     "test": "yarn turbo run test",
     "storybook": "yarn turbo run storybook"
-  },
-  "peerDependencies": {
-    "tailwindcss": "^3.3.5",
-    "vue": "^3.0.0"
-  },
-  "main": "./dist/ui-library.umd.js",
-  "module": "./dist/ui-library.es.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "vue",
-    "vue3",
-    "component",
-    "library"
-  ]
+  }
 }

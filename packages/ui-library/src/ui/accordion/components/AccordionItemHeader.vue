@@ -1,6 +1,7 @@
 <template>
   <h3>
     <button
+      data-testid="accordion-header"
       :id="headerId"
       :aria-expanded="!isCollapsed"
       :aria-controls="panelId"

@@ -1,0 +1,23 @@
+describe("accordion", () => {
+  it("shows all the accordion item titles", () => {});
+
+  describe("when multiple items can be opened per time", () => {
+    describe("clicking on one accordion item header", () => {
+      it("opens its accordion item panel", () => {});
+    });
+
+    describe("clicking on multiple accordion headers", () => {
+      it("opens the panel of each header", () => {});
+    });
+  });
+
+  describe("when only one item can be opened per time", () => {
+    describe("clicking one accordion header", () => {
+      it("opens its accordion item panel", () => {});
+    });
+
+    describe("clicking on multiple accordion headers", () => {
+      it("opens the panel of each header", () => {});
+    });
+  });
+});
