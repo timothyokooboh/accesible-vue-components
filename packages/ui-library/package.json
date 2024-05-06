@@ -17,6 +17,8 @@
   "dependencies": {
     "@avc/foundations": "*",
     "@heroicons/vue": "^2.1.3",
+    "clsx": "^2.1.1",
+    "material-symbols": "^0.17.4",
     "sass": "^1.75.0",
     "slugify": "^1.6.6",
     "vue": "^3.4.21"

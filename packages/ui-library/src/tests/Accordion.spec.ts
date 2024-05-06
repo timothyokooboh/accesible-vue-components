@@ -1,4 +1,3 @@
-// import "@testing-library/jest-dom";
 import { render, screen, cleanup } from "@testing-library/vue";
 import userEvent from "@testing-library/user-event";
 import { Accordion } from "@/ui/accordion/components";
@@ -53,6 +52,7 @@ describe("accordion", () => {
 
         accordionPanels = screen.queryAllByTestId("accordion-panel");
         expect(accordionPanels.length).toBe(1);
+        expect(accordionPanels[0]).toBeVisible();
       });
     });
 
@@ -68,6 +68,8 @@ describe("accordion", () => {
 
         accordionPanels = await screen.findAllByTestId("accordion-panel");
         expect(accordionPanels.length).toBe(2);
+        expect(accordionPanels[0]).toBeVisible();
+        expect(accordionPanels[1]).toBeVisible();
       });
     });
   });

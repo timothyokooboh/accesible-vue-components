@@ -8,10 +8,8 @@
       :class="`w-full text-left flex justify-between items-center py-[13px] px-[28px] ${headerClass}`"
       @click="toggleCollapse"
     >
-      <div>
-        <p v-if="title" v-html="title" />
-        <slot v-else />
-      </div>
+      <p v-if="title" v-html="title" />
+      <slot v-else />
 
       <slot v-if="isCollapsed" name="toggleIcon:collapsed">
         <ChevronDownIcon v-if="isCollapsed" class="h-4" />

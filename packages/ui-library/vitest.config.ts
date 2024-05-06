@@ -7,8 +7,9 @@ export default mergeConfig(
   defineConfig({
     test: {
       environment: "jsdom",
-      exclude: [...configDefaults.exclude, "*scaffold.test.ts"],
+      exclude: [...configDefaults.exclude],
       root: fileURLToPath(new URL("./", import.meta.url)),
+      setupFiles: ["./vitest-setup.ts"],
     },
   }),
 );
