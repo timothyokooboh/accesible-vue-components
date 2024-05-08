@@ -8,15 +8,19 @@
       :class="`w-full text-left flex justify-between items-center py-[13px] px-[28px] ${headerClass}`"
       @click="toggleCollapse"
     >
-      <p v-if="title" v-html="title" />
-      <slot v-else />
+      <div>
+        <p v-if="title" v-html="title" />
+        <slot v-else />
+      </div>
 
-      <slot v-if="isCollapsed" name="toggleIcon:collapsed">
-        <ChevronDownIcon v-if="isCollapsed" class="h-4" />
-      </slot>
-      <slot v-else name="toggleIcon:unCollapsed">
-        <ChevronUpIcon class="h-4" />
-      </slot>
+      <div>
+        <slot v-if="isCollapsed" name="toggleIcon:collapsed">
+          <ChevronDownIcon v-if="isCollapsed" class="h-4" />
+        </slot>
+        <slot v-else name="toggleIcon:unCollapsed">
+          <ChevronUpIcon class="h-4" />
+        </slot>
+      </div>
     </button>
   </h3>
 </template>

@@ -26,7 +26,7 @@ const props = defineProps<{
 
 const { handleArrowNavigation } = useArrowNavigation();
 
-const headerClass = `accordion-header-${useId()}`;
+const headerClass = useId("accordion-header");
 const currentOpenPanel = ref("");
 const updateCurrentOpenPanel = (value: string) => {
   if (props.isSingle) {

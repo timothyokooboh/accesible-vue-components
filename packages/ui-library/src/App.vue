@@ -35,10 +35,7 @@
 
         <Accordion class="w-[400px]" isSingle>
           <AccordionItem>
-            <AccordionItemHeader>
-              svelte
-              <template #toggleIcon:collapsed> K </template>
-            </AccordionItemHeader>
+            <AccordionItemHeader> svelte </AccordionItemHeader>
             <AccordionItemPanel>
               <div>
                 <button>yello</button>
@@ -57,10 +54,7 @@
           </AccordionItem>
 
           <AccordionItem>
-            <AccordionItemHeader>
-              Angular
-              <template #toggleIcon:collapsed> K </template>
-            </AccordionItemHeader>
+            <AccordionItemHeader> Angular </AccordionItemHeader>
             <AccordionItemPanel>This is Angular</AccordionItemPanel>
           </AccordionItem>
         </Accordion>
@@ -69,13 +63,24 @@
 
     <h3 class="mb-3">Alert</h3>
     <div class="flex flex-wrap gap-[10px]">
-      <Alert class="w-[400px]">
+      <Alert
+        v-if="isAlertShown"
+        class="w-[400px]"
+        @close:alert="isAlertShown = false"
+      >
         <AlertHeader class="mb-3"> </AlertHeader>
 
         <AlertDescription>
           <p>You have subscribed successfully</p>
         </AlertDescription>
       </Alert>
+
+      <Alert
+        v-if="isAlertShown"
+        class="w-[400px]"
+        @close:alert="isAlertShown = false"
+        :data="{ title: 'Awesome', description: 'this is awesome' }"
+      />
 
       <Alert variant="warning" class="w-[400px]">
         <AlertHeader class="mb-3" />
@@ -113,6 +118,9 @@ import {
 } from "@/ui/accordion/components";
 
 import { Alert, AlertHeader, AlertDescription } from "@/ui/alert";
+import { ref } from "vue";
+
+const isAlertShown = ref(true);
 </script>
 
 <style scoped></style>

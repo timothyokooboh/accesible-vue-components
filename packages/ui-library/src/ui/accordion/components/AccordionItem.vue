@@ -24,9 +24,8 @@ defineProps<{
   item?: AccordionItem;
 }>();
 
-const id = useId();
-const headerId = `accordion-header-${id}`;
-const panelId = `accordion-panel-${id}`;
+const headerId = useId("accordion-header");
+const panelId = useId("accordion-panel");
 
 const { currentOpenPanel, updateCurrentOpenPanel, isSingle } = inject(
   ACCORDION_CURRENT_OPEN_PANEL,

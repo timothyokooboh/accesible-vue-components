@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ALERT_VARIANT } from "@/keys";
-import type { AlertVariant } from "@/types";
 import { computed, inject } from "vue";
 import clsx from "clsx";
+import type { AlertVariant } from "@/types";
 
 const variant = inject(ALERT_VARIANT) as AlertVariant;
 const variantClassStrategy = {
