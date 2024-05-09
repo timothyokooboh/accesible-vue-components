@@ -76,9 +76,7 @@
       </Alert>
 
       <Alert
-        v-if="isAlertShown"
         class="w-[400px]"
-        @close:alert="isAlertShown = false"
         :data="{ title: 'Awesome', description: 'this is awesome' }"
       />
 

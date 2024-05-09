@@ -6,18 +6,34 @@ describe("accordion", () => {
       it("opens its accordion item panel", () => {});
     });
 
-    describe("clicking on multiple accordion headers", () => {
-      it("opens the panel of each header", () => {});
+    describe("clicking on another accordion item header", () => {
+      it("opens its accordion item panel without closing the first accordion item", () => {});
     });
   });
 
   describe("when only one item can be opened per time", () => {
-    describe("clicking one accordion header", () => {
+    describe("clicking one accordion item header", () => {
       it("opens its accordion item panel", () => {});
     });
 
-    describe("clicking on multiple accordion headers", () => {
-      it("opens the panel of each header", () => {});
+    describe("clicking on another accordion item header", () => {
+      it("opens its accordion item panel and closes the first accordion item", () => {});
     });
   });
+
+  describe("keyboard accessibility", () => {
+    describe("navigating with down arrow key", () => {
+      it("it moves focus to the next accordion item header", () => {})
+      describe("when focus is on the last item header", () => {
+        it("moves focus to the first item header", () => {})
+      })
+    })
+
+    describe("navigating with up arrow key", () => {
+      it("it moves focus to the previous accordion item header", () => {})
+      describe("when focus is on the first item header", () => {
+        it("moves focus to the last item header", () => {})
+      })
+    })
+  })
 });
