@@ -32,17 +32,17 @@ withDefaults(
 const headerId = useId("accordion-header");
 const panelId = useId("accordion-panel");
 
-const { currentOpenPanel, updateCurrentOpenPanel, isSingle } = inject(
+const { currentOpenPanel, updateCurrentOpenPanel, single } = inject(
   ACCORDION_CURRENT_OPEN_PANEL,
 ) as {
-  isSingle: boolean;
+  single: boolean;
   updateCurrentOpenPanel: (value: string) => void;
   currentOpenPanel: Ref<string>;
 };
 
 const isCollapsed = ref(true);
 const toggleCollapse = () => {
-  if (isSingle) {
+  if (single) {
     if (currentOpenPanel.value === panelId) {
       updateCurrentOpenPanel("");
     } else {

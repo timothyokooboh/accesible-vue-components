@@ -39,7 +39,7 @@ provide(ACCORDION_HEADER, headerClass);
 provide(ACCORDION_CURRENT_OPEN_PANEL, {
   currentOpenPanel,
   updateCurrentOpenPanel,
-  isSingle: props.single,
+  single: props.single,
 });
 </script>
 

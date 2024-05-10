@@ -5,7 +5,7 @@
       :id="panelId"
       :aria-labelledby="headerId"
       class="text-grayScale-400 py-[13px] px-[28px]"
-      v-if="isSingle ? panelId === currentOpenPanel : !isCollapsed"
+      v-if="single ? panelId === currentOpenPanel : !isCollapsed"
     >
       <p v-if="content" v-html="content" />
 
@@ -29,9 +29,9 @@ const { isCollapsed, panelId, headerId } = inject(ACCORDION_STATE) as {
   headerId: string;
 };
 
-const { currentOpenPanel, isSingle } = inject(ACCORDION_CURRENT_OPEN_PANEL) as {
+const { currentOpenPanel, single } = inject(ACCORDION_CURRENT_OPEN_PANEL) as {
   currentOpenPanel: string;
-  isSingle: boolean;
+  single: boolean;
 };
 </script>
 
