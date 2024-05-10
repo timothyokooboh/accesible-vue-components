@@ -1,1 +1,1 @@
-export * from "@/ui/accordion/components";
+export * from "@/components/accordion";
