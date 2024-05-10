@@ -18,6 +18,6 @@
     "build": "yarn turbo run build",
     "test": "yarn turbo run test",
     "storybook": "yarn turbo run storybook",
-    "build-storybook": "yarn turbo run build && build-storybook"
+    "build-storybook": "yarn turbo run build && yarn turbo run build-storybook"
   }
 }
