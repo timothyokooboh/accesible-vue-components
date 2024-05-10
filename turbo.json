@@ -10,6 +10,9 @@
     },
     "dev": {},
     "storybook": {},
+    "build-storybook": {
+      "dependsOn": ["^build"]
+    },
     "build": {
       "dependsOn": ["^build"]
     },
