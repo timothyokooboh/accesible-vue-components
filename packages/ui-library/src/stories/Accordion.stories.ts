@@ -42,7 +42,7 @@ export const Multiple: Story = {
       AccordionItemHeader,
       AccordionItemPanel,
     },
-    template: `<Accordion>
+    template: `<Accordion class="w-[400px]">
       <AccordionItem>
         <AccordionItemHeader> svelte </AccordionItemHeader>
         <AccordionItemPanel>
