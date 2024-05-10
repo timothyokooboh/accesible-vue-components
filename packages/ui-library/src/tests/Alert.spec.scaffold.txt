@@ -1,0 +1,37 @@
+describe('Alert', () => {
+    describe('success variant', () => {
+        describe('when a custom title is not passed', () => {
+            it('renders "Success" as the title of the alert', () => {})
+        })
+        describe('when a custom title is passed', () => {
+            it('renders the custom title as the title of the alert', () => {})
+        })
+    })
+
+    describe('error variant', () => {
+        describe('when a custom title is not passed', () => {
+            it('renders "Error" as the title of the alert', () => {})
+        })
+        describe('when a custom title is passed', () => {
+            it('renders the custom title as the title of the alert', () => {})
+        })
+    })
+
+    describe('warning variant', () => {
+        describe('when a custom title is not passed', () => {
+            it('renders "Warning" as the title of the alert', () => {})
+        })
+        describe('when a custom title is passed', () => {
+            it('renders the custom title as the title of the alert', () => {})
+        })
+    })
+
+    describe('info variant', () => {
+        describe('when a custom title is not passed', () => {
+            it('renders "Info" as the title of the alert', () => {})
+        })
+        describe('when a custom title is passed', () => {
+            it('renders the custom title as the title of the alert', () => {})
+        })
+    })
+})

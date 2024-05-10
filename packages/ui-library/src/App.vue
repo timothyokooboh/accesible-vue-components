@@ -1,124 +1,80 @@
 <template>
   <div class="my-5 mx-4">
-    <div class="mb-16">
-      <h3 class="mb-3">Accordion</h3>
+    <div class="mb-8">
+      <h2 class="mb-3">Accordion</h2>
 
-      <div class="flex flex-wrap gap-[10px]">
-        <Accordion
-          class="w-[400px]"
-          :items="[
-            {
-              title: 'Vue.js',
-              content: `<div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                rerum, ratione magnam cumque tempora unde placeat minima harum
-                suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
-                optio totam! Sapiente, quisquam.
-              </div>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                rerum, ratione magnam cumque tempora unde placeat minima harum
-                suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
-                optio totam! Sapiente, quisquam.
-              </div>
-              `,
-            },
-            {
-              title: 'React.js',
-              content: `
-                <h3 class='font-bold'>React.js</h3>
-                <p>I like this framework</p>
-              `,
-            },
-          ]"
-        />
+      <div class="flex flex-wrap gap-[20px]">
+        <div class="mb-3">
+          <h3>Accordion basic</h3>
+          <AccordionBasic />
+        </div>
 
-        <Accordion class="w-[400px]" isSingle>
-          <AccordionItem>
-            <AccordionItemHeader> svelte </AccordionItemHeader>
-            <AccordionItemPanel>
-              <div>
-                <button>yello</button>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                rerum, ratione magnam cumque tempora unde placeat minima harum
-                suscipit accusamus doloremque sit nulla nostrum quis
-                necessitatibus, optio totam! Sapiente, quisquam.
-              </div>
-              <div>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-                rerum, ratione magnam cumque tempora unde placeat minima harum
-                suscipit accusamus doloremque sit nulla nostrum quis
-                necessitatibus, optio totam! Sapiente, quisquam.
-              </div>
-            </AccordionItemPanel>
-          </AccordionItem>
+        <div class="mb-3">
+          <h3>Accordion with multiple items open per time</h3>
+          <AccordionMultiple />
+        </div>
 
-          <AccordionItem>
-            <AccordionItemHeader> Angular </AccordionItemHeader>
-            <AccordionItemPanel>This is Angular</AccordionItemPanel>
-          </AccordionItem>
-        </Accordion>
+        <div class="mb-3">
+          <h3>Accordion with one item open per time</h3>
+          <AccordionSingle />
+        </div>
       </div>
     </div>
 
-    <h3 class="mb-3">Alert</h3>
-    <div class="flex flex-wrap gap-[10px]">
-      <Alert
-        v-if="isAlertShown"
-        class="w-[400px]"
-        @close:alert="isAlertShown = false"
-      >
-        <AlertHeader class="mb-3"> </AlertHeader>
+    <div>
+      <h2 class="mb-3">Alert</h2>
+      <div class="flex flex-wrap gap-[20px]">
+        <div>
+          <h3>Alert basic</h3>
+          <AlertBasic />
+        </div>
 
-        <AlertDescription>
-          <p>You have subscribed successfully</p>
-        </AlertDescription>
-      </Alert>
+        <div>
+          <h3>Alert success</h3>
+          <AlertSuccess />
+        </div>
 
-      <Alert
-        class="w-[400px]"
-        :data="{ title: 'Awesome', description: 'this is awesome' }"
-      />
+        <div>
+          <h3>Alert error</h3>
+          <AlertError />
+        </div>
 
-      <Alert variant="warning" class="w-[400px]">
-        <AlertHeader class="mb-3" />
+        <div>
+          <h3>Alert warning</h3>
+          <AlertWarning />
+        </div>
 
-        <AlertDescription>
-          <p>You have almost exhausted your data</p>
-        </AlertDescription>
-      </Alert>
+        <div>
+          <h3>Alert warning</h3>
+          <AlertInfo />
+        </div>
 
-      <Alert variant="error" class="w-[400px]">
-        <AlertHeader class="mb-3" />
-
-        <AlertDescription>
-          <p>Your browser is not supported</p>
-        </AlertDescription>
-      </Alert>
-
-      <Alert variant="info" class="w-[400px]">
-        <AlertHeader class="mb-3" />
-
-        <AlertDescription>
-          <p>You are eligible for a new loan</p>
-        </AlertDescription>
-      </Alert>
+        <div>
+          <h3>Alert always visible</h3>
+          <AlertAlwaysVisible />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeader,
-  AccordionItemPanel,
-} from "@/ui/accordion/components";
+  AccordionBasic,
+  AccordionMultiple,
+  AccordionSingle,
+} from "@/components/accordion/story";
 
-import { Alert, AlertHeader, AlertDescription } from "@/ui/alert";
-import { ref } from "vue";
+import {
+  AlertBasic,
+  AlertError,
+  AlertSuccess,
+  AlertWarning,
+  AlertInfo,
+  AlertAlwaysVisible,
+} from "@/components/alert/story";
 
-const isAlertShown = ref(true);
+import { Alert } from "./components/alert";
 </script>
 
 <style scoped></style>

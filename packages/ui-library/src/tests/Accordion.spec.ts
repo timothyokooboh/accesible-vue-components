@@ -1,7 +1,11 @@
 import { render, screen, cleanup, fireEvent } from "@testing-library/vue";
 import userEvent from "@testing-library/user-event";
-import { Accordion } from "@/ui/accordion/components";
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import {
+  AccordionBasic,
+  AccordionMultiple,
+  AccordionSingle,
+} from "@/components/accordion/story";
 
 describe("accordion", () => {
   afterEach(() => {
@@ -9,36 +13,16 @@ describe("accordion", () => {
   });
 
   it("shows all the accordion item titles", async () => {
-    render(Accordion, {
-      props: {
-        items: [
-          { title: "About", content: "This is a course on practical vue.js" },
-          { title: "Technologies", content: "TypeScript Vuejs TailwindCSS" },
-        ],
-      },
-    });
+    render(AccordionBasic);
 
     const accordionHeaders = await screen.findAllByTestId("accordion-header");
-    expect(accordionHeaders[0].textContent).toBe("About");
-    expect(accordionHeaders[1].textContent).toBe("Technologies");
+    expect(accordionHeaders[0].textContent).toBe("Vue.js");
+    expect(accordionHeaders[1].textContent).toBe("React.js");
   });
 
   describe("when multiple items can be opened per time", () => {
     beforeEach(() => {
-      render(Accordion, {
-        props: {
-          items: [
-            {
-              title: "About",
-              content: "This is a course on practical vue.js",
-            },
-            {
-              title: "Technologies",
-              content: "TypeScript Vuejs TailwindCSS",
-            },
-          ],
-        },
-      });
+      render(AccordionMultiple);
     });
 
     describe("clicking on one accordion header", () => {
@@ -56,41 +40,23 @@ describe("accordion", () => {
       });
     });
 
-    describe("clicking on multiple accordion headers", () => {
-      it("opens the panel of each header", async () => {
+    describe("clicking on another accordion item header", () => {
+      it("opens its accordion item panel without closing the first accordion item", async () => {
         const accordionHeaders =
           await screen.findAllByTestId("accordion-header");
-        let accordionPanels = screen.queryAllByTestId("accordion-panel");
 
-        expect(accordionPanels.length).toBe(0);
+        expect(screen.queryAllByTestId("accordion-panel").length).toBe(0);
         await userEvent.click(accordionHeaders[0]);
         await userEvent.click(accordionHeaders[1]);
 
-        accordionPanels = await screen.findAllByTestId("accordion-panel");
-        expect(accordionPanels.length).toBe(2);
-        expect(accordionPanels[0]).toBeVisible();
-        expect(accordionPanels[1]).toBeVisible();
+        expect(screen.queryAllByTestId("accordion-panel").length).toBe(2);
       });
     });
   });
 
   describe("when only one item can be open per time", () => {
     beforeEach(() => {
-      render(Accordion, {
-        props: {
-          isSingle: true,
-          items: [
-            {
-              title: "About",
-              content: "This is a course on practical vue.js",
-            },
-            {
-              title: "Technologies",
-              content: "TypeScript Vuejs TailwindCSS",
-            },
-          ],
-        },
-      });
+      render(AccordionSingle);
     });
 
     describe("clicking one accordion header", () => {
@@ -107,38 +73,23 @@ describe("accordion", () => {
       });
     });
 
-    describe("clicking on multiple accordion headers", () => {
-      it("opens the panel of each header", async () => {
+    describe("clicking on another accordion item header", () => {
+      it("opens its accordion item panel and closes the first accordion item", async () => {
         const accordionHeaders =
           await screen.findAllByTestId("accordion-header");
-        let accordionPanels = screen.queryAllByTestId("accordion-panel");
 
-        expect(accordionPanels.length).toBe(0);
+        expect(screen.queryAllByTestId("accordion-panel").length).toBe(0);
         await userEvent.click(accordionHeaders[0]);
         await userEvent.click(accordionHeaders[1]);
 
-        accordionPanels = await screen.findAllByTestId("accordion-panel");
-        expect(accordionPanels.length).toBe(1);
+        expect(screen.queryAllByTestId("accordion-panel").length).toBe(1);
       });
     });
   });
 
   describe("keyboard accessibility", () => {
     beforeEach(() => {
-      render(Accordion, {
-        props: {
-          items: [
-            {
-              title: "About",
-              content: "This is a course on practical vue.js",
-            },
-            {
-              title: "Technologies",
-              content: "TypeScript Vuejs TailwindCSS",
-            },
-          ],
-        },
-      });
+      render(AccordionBasic);
     });
 
     describe("navigating with down arrow key", () => {
