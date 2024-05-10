@@ -22,7 +22,7 @@ import { useArrowNavigation } from "@/composables";
 
 const props = defineProps<{
   items?: AccordionItemType[];
-  isSingle?: boolean;
+  single?: boolean;
 }>();
 
 const { handleArrowNavigation } = useArrowNavigation();
@@ -30,7 +30,7 @@ const { handleArrowNavigation } = useArrowNavigation();
 const headerClass = useId("accordion-header");
 const currentOpenPanel = ref("");
 const updateCurrentOpenPanel = (value: string) => {
-  if (props.isSingle) {
+  if (props.single) {
     currentOpenPanel.value = value;
   }
 };
@@ -39,7 +39,7 @@ provide(ACCORDION_HEADER, headerClass);
 provide(ACCORDION_CURRENT_OPEN_PANEL, {
   currentOpenPanel,
   updateCurrentOpenPanel,
-  isSingle: props.isSingle,
+  isSingle: props.single,
 });
 </script>
 

@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/vue3";
+import "material-symbols";
+import "material-symbols/outlined.css";
 import "../src/index.css";
 
 const preview: Preview = {

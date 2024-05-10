@@ -65,7 +65,29 @@ export const Multiple: Story = {
 
 export const Single: Story = {
   render: () => ({
-    components: { AccordionSingle },
-    template: `<AccordionSingle />`,
+    components: {
+      Accordion,
+      AccordionItem,
+      AccordionItemHeader,
+      AccordionItemPanel,
+    },
+    template: `<Accordion single class="w-[400px]">
+      <AccordionItem>
+        <AccordionItemHeader> svelte </AccordionItemHeader>
+        <AccordionItemPanel>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+            rerum, ratione magnam cumque tempora unde placeat minima harum
+            suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
+            optio totam! Sapiente, quisquam.
+          </p>
+        </AccordionItemPanel>
+      </AccordionItem>
+
+      <AccordionItem>
+        <AccordionItemHeader> Angular </AccordionItemHeader>
+        <AccordionItemPanel>This is Angular</AccordionItemPanel>
+      </AccordionItem>
+    </Accordion>`,
   }),
 };
