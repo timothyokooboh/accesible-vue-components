@@ -7,4 +7,4 @@ A collection of accessible and reusable user interface components currently bein
 
 ## Documentation
 I am using storybook to document the usage of each component.
-The link to the storybook documentation can be found <a href="https://practical-vuejs-course-prep-ui-library.vercel.app/">here.</a>
+The link to the storybook documentation can be found <a href="https://accesible-vue-components-ui-library.vercel.app">here.</a>
