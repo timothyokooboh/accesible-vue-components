@@ -5,7 +5,7 @@ import {
   AccordionBasic,
   AccordionMultiple,
   AccordionSingle,
-} from "@/components/accordion/story";
+} from "@/components/accordion/examples";
 
 describe("accordion", () => {
   afterEach(() => {
@@ -100,7 +100,7 @@ describe("accordion", () => {
         firstHeader.focus();
 
         // press down arrow key
-        await fireEvent.keyUp(firstHeader, {
+        await fireEvent.keyDown(firstHeader, {
           key: "ArrowDown",
         });
 
@@ -117,7 +117,7 @@ describe("accordion", () => {
           lastHeader.focus();
 
           // press the down arrow key
-          await fireEvent.keyUp(lastHeader, { key: "ArrowDown" });
+          await fireEvent.keyDown(lastHeader, { key: "ArrowDown" });
 
           // focus should move to the first item header
           const firstHeader = screen.queryAllByTestId("accordion-header")[0];
@@ -132,7 +132,7 @@ describe("accordion", () => {
         // focus on the first header
         secondHeader.focus();
         // press the down arrow key
-        await fireEvent.keyUp(secondHeader, { key: "ArrowUp" });
+        await fireEvent.keyDown(secondHeader, { key: "ArrowUp" });
 
         // focus should move to the last item header
         const firstHeader = screen.queryAllByTestId("accordion-header")[0];
@@ -144,7 +144,7 @@ describe("accordion", () => {
           // focus on the first header
           firstHeader.focus();
           // press the down arrow key
-          await fireEvent.keyUp(firstHeader, { key: "ArrowUp" });
+          await fireEvent.keyDown(firstHeader, { key: "ArrowUp" });
 
           // focus should move to the last item header
           const lastHeader = screen.queryAllByTestId("accordion-header")[1];

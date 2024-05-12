@@ -1,8 +1,9 @@
 <template>
   <div
     class="border-x border-b border-grayScale-200 rounded-[5px]"
-    @keyup.up="handleArrowNavigation('up', headerClass)"
-    @keyup.down="handleArrowNavigation('down', headerClass)"
+    @keydown.up.down="
+      handleArrowNavigation($event.key as 'up' | 'down', headerClass)
+    "
   >
     <slot v-if="$slots.default" />
 

@@ -10,7 +10,7 @@ import {
   AccordionBasic,
   AccordionMultiple,
   AccordionSingle,
-} from "@/components/accordion/story";
+} from "@/components/accordion/examples";
 
 const meta = {
   title: "Accordion",
@@ -42,7 +42,7 @@ export const Multiple: Story = {
       AccordionItemHeader,
       AccordionItemPanel,
     },
-    template: `<Accordion class="w-[400px]">
+    template: `<Accordion>
       <AccordionItem>
         <AccordionItemHeader> svelte </AccordionItemHeader>
         <AccordionItemPanel>
@@ -71,7 +71,7 @@ export const Single: Story = {
       AccordionItemHeader,
       AccordionItemPanel,
     },
-    template: `<Accordion single class="w-[400px]">
+    template: `<Accordion single>
       <AccordionItem>
         <AccordionItemHeader> svelte </AccordionItemHeader>
         <AccordionItemPanel>

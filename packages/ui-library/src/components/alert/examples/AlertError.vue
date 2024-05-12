@@ -5,6 +5,9 @@
         <template #alertTitle>
           <p>Unable to upload file</p>
         </template>
+        <template #alertCloseIcon>
+          <button>&times;</button>
+        </template>
       </AlertHeader>
 
       <AlertDescription>

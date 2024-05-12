@@ -6,7 +6,7 @@ import {
   AlertError,
   AlertInfo,
   AlertWarning,
-} from "@/components/alert/story";
+} from "@/components/alert/examples";
 import { Alert } from "@/components/alert";
 
 describe("Alert", () => {

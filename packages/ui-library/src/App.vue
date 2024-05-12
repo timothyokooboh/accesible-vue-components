@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="mb-8">
       <h2 class="mb-3">Alert</h2>
       <div class="flex flex-wrap gap-[20px]">
         <div>
@@ -55,6 +55,11 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <h2 class="mb-3">Alert Dialog</h2>
+      <AlertDialog />
+    </div>
   </div>
 </template>
 
@@ -63,7 +68,7 @@ import {
   AccordionBasic,
   AccordionMultiple,
   AccordionSingle,
-} from "@/components/accordion/story";
+} from "@/components/accordion/examples";
 
 import {
   AlertBasic,
@@ -72,9 +77,13 @@ import {
   AlertWarning,
   AlertInfo,
   AlertAlwaysVisible,
-} from "@/components/alert/story";
+} from "@/components/alert/examples";
 
-import { Alert } from "./components/alert";
+import AlertDialog from "@/components/alertDialog/examples/AlertDialog.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+::backdrop {
+  background-color: red;
+}
+</style>
