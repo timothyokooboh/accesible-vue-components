@@ -7,7 +7,10 @@
     </h3>
 
     <slot name="closeButton">
-      <button @click="onClose">
+      <button
+        @click="onClose"
+        class="flex items-center rounded-full p-1 hover:bg-grayScale-200 duration-150"
+      >
         <span class="material-symbols-sharp">close</span>
       </button>
     </slot>

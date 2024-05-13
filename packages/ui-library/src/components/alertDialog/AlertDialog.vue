@@ -1,7 +1,8 @@
 <template>
   <dialog
+    id="dialog"
     ref="dialog"
-    @keydown.esc="onClose"
+    @keydown="handleKeyDownEvent($event)"
     role="alertdialog"
     :aria-labelledby="titleId"
     :aria-describedby="messageId"
@@ -12,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { useId } from "@/helpers";
+import { getFocusableElements, handleFocusTrapping, useId } from "@/helpers";
 import {
   ALERT_DIALOG_CTA,
   ALERT_DIALOG_MESSAGE_ID,
@@ -27,12 +28,17 @@ const props = defineProps<{
 }>();
 
 const dialog = ref();
+const focusableElements = ref<HTMLElement[] | undefined>(undefined);
 
 watch(
   () => props.isOpen,
   (newValue) => {
     if (newValue) {
       dialog.value.showModal();
+      const dialogEl = document.querySelector("#dialog") as HTMLElement;
+      if (dialogEl) {
+        focusableElements.value = getFocusableElements(dialogEl);
+      }
     } else {
       dialog.value.close();
     }
@@ -49,6 +55,32 @@ provide(ALERT_DIALOG_CTA, {
 
 provide(ALERT_DIALOG_TITLE_ID, titleId);
 provide(ALERT_DIALOG_MESSAGE_ID, messageId);
+
+// const getFocusableElements = () => {
+//   const dialogEl = document.querySelector("#dialog");
+//   const result = dialogEl?.querySelectorAll(
+//     'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+//   );
+
+//   if (result) {
+//     const h = Array.from(result);
+//     focusableElements.value = h as HTMLElement[];
+//   }
+// };
+
+const handleKeyDownEvent = (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    props.onClose();
+  }
+
+  if (
+    event.key === "Tab" &&
+    Array.isArray(focusableElements.value) &&
+    focusableElements.value.length > 0
+  ) {
+    handleFocusTrapping(event, focusableElements.value);
+  }
+};
 </script>
 
 <style scoped></style>
