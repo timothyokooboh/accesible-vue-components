@@ -106,7 +106,7 @@ describe("accordion", () => {
 
         // focus should move to the next item header
         const secondHeader = screen.queryAllByTestId("accordion-header")[1];
-        expect(secondHeader).toHaveFocus();
+        expect(secondHeader).toBe(document.activeElement);
       });
 
       describe("when focus is on the last item header", () => {
@@ -121,7 +121,7 @@ describe("accordion", () => {
 
           // focus should move to the first item header
           const firstHeader = screen.queryAllByTestId("accordion-header")[0];
-          expect(firstHeader).toHaveFocus();
+          expect(firstHeader).toBe(document.activeElement);
         });
       });
     });
@@ -136,7 +136,7 @@ describe("accordion", () => {
 
         // focus should move to the last item header
         const firstHeader = screen.queryAllByTestId("accordion-header")[0];
-        expect(firstHeader).toHaveFocus();
+        expect(firstHeader).toBe(document.activeElement);
       });
       describe("when focus is on the first item header", () => {
         it("moves focus to the last item header", async () => {
@@ -148,7 +148,7 @@ describe("accordion", () => {
 
           // focus should move to the last item header
           const lastHeader = screen.queryAllByTestId("accordion-header")[1];
-          expect(lastHeader).toHaveFocus();
+          expect(lastHeader).toBe(document.activeElement);
         });
       });
     });

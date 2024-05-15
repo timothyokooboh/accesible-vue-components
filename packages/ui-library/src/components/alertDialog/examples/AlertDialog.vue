@@ -1,10 +1,5 @@
 <template>
-  <AlertDialog
-    :isOpen="isOpen"
-    :onClose="onClose"
-    :onConfirm="onConfirm"
-    class="backdrop:bg-red-500"
-  >
+  <AlertDialog :isOpen="isOpen" :onClose="onClose" :onConfirm="onConfirm">
     <AlertDialogHeader>
       <template #title>
         <p class="text-[18px]">Delete User</p>
@@ -19,7 +14,9 @@
     </AlertDialogFooter>
   </AlertDialog>
 
-  <button @click="isOpen = true">Open modal</button>
+  <button @click="isOpen = true" data-testid="dialog-trigger">
+    Open modal
+  </button>
 </template>
 
 <script setup lang="ts">

@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-[30px]" :id="messageId">
+  <div class="mt-[30px]" :id="messageId" data-testid="alert-dialog-description">
     <slot />
   </div>
 </template>

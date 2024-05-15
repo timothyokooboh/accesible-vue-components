@@ -6,6 +6,7 @@
     role="alertdialog"
     :aria-labelledby="titleId"
     :aria-describedby="messageId"
+    data-testid="alert-dialog-root"
     class="max-w-[600px] w-[90%] rounded-[5px] py-[20px] px-[30px] backdrop:bg-[#5885AE] backdrop:opacity-[0.5]"
   >
     <slot />

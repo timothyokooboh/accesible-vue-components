@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-between">
-    <h3 class="font-bold" :id="titleId">
+    <h3 class="font-bold" :id="titleId" data-testid="alert-dialog-title">
       <slot name="title">
         <span>Modal title</span>
       </slot>
