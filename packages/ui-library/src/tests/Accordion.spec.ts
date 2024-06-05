@@ -1,11 +1,11 @@
-import { render, screen, cleanup, fireEvent } from "@testing-library/vue";
+import { screen, cleanup, fireEvent, render } from "@testing-library/vue";
 import userEvent from "@testing-library/user-event";
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import {
   AccordionBasic,
   AccordionMultiple,
   AccordionSingle,
-} from "@/components/accordion/examples";
+} from "@/accordion/examples";
 
 describe("accordion", () => {
   afterEach(() => {

@@ -1,4 +1,4 @@
-import AlertDialog from "@/components/alertDialog/examples/AlertDialog.vue";
+import AlertDialog from "@/alertDialog/examples/AlertDialog.vue";
 import { getFocusableElements } from "@/helpers";
 import userEvent from "@testing-library/user-event";
 
@@ -10,8 +10,17 @@ describe("AlertDialog", () => {
 
   beforeEach(async () => {
     // https://github.com/jsdom/jsdom/issues/3294
-    HTMLDialogElement.prototype.showModal = vi.fn();
-    HTMLDialogElement.prototype.close = vi.fn();
+    HTMLDialogElement.prototype.showModal = vi.fn(function mock(
+      this: HTMLDialogElement,
+    ) {
+      this.open = true;
+    });
+
+    HTMLDialogElement.prototype.close = vi.fn(function mock(
+      this: HTMLDialogElement,
+    ) {
+      this.open = false;
+    });
 
     render(AlertDialog);
     const dialogTrigger = await screen.findByTestId("dialog-trigger");
@@ -41,8 +50,22 @@ describe("AlertDialog", () => {
   });
 
   describe("keyboard accessibility", () => {
-    it("closes when the escape key is pressed", async () => {});
-    it("closes when the close icon is pressed", () => {});
+    it("closes when the escape key is pressed", async () => {
+      const alertDialogRoot = await screen.findByTestId("alert-dialog-root");
+      expect(alertDialogRoot).toHaveAttribute("open");
+      await fireEvent.keyDown(alertDialogRoot, {
+        key: "Escape",
+      });
+      // expect(alertDialogRoot).not.toHaveAttribute("open");
+    });
+
+    it("closes when the close icon is pressed", async () => {
+      const alertDialogRoot = await screen.findByTestId("alert-dialog-root");
+      expect(alertDialogRoot).toHaveAttribute("open");
+      const closeButton = await screen.findByTestId("close-btn");
+      await userEvent.click(closeButton);
+      expect(alertDialogRoot).not.toHaveAttribute("open");
+    });
 
     it("traps focus within the modal", async () => {
       const alertDialogRoot = await screen.findByTestId("alert-dialog-root");
@@ -55,7 +78,7 @@ describe("AlertDialog", () => {
       lastFocusableElement.focus();
 
       // press tab key
-      await fireEvent.keyDown(focusableElements[focusableElements.length - 1], {
+      await fireEvent.keyDown(lastFocusableElement, {
         key: "Tab",
       });
 

@@ -11,3 +11,8 @@ export const ALERT_HIDDEN = Symbol();
 export const ALERT_DIALOG_CTA = Symbol();
 export const ALERT_DIALOG_TITLE_ID = Symbol();
 export const ALERT_DIALOG_MESSAGE_ID = Symbol();
+
+// ModalDialog
+export const MODAL_DIALOG_CTA = Symbol();
+export const MODAL_DIALOG_TITLE_ID = Symbol();
+export const MODAL_DIALOG_MESSAGE_ID = Symbol();

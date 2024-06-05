@@ -29,7 +29,11 @@ export const handleFocusTrapping = (
   const firstElement = focusableElements[0];
   const lastElement = focusableElements[focusableElements.length - 1];
 
-  if (event.key === "Tab") {
+  if (
+    event.key === "Tab" &&
+    Array.isArray(focusableElements) &&
+    focusableElements.length > 0
+  ) {
     if (event.shiftKey && document.activeElement === firstElement) {
       event.preventDefault();
       lastElement.focus();

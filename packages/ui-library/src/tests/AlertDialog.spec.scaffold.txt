@@ -2,14 +2,12 @@
 describe('AlertDialog', () => {
     describe('aria states', () => {
         it('has aria-labelledby which is equal to the id of the dialog title', () => {})
-
         it('has aria-describedby which is equal to the id of the dialog description', () => {})
     })
 
     describe('keyboard accessibility', () => {
         it('closes when the escape key is pressed', () => {})
         it('closes when the close icon is pressed', () => {})
-        it('closes when the  button is pressed', () => {})
         it('traps focus within the modal', () => {})
     })
 })

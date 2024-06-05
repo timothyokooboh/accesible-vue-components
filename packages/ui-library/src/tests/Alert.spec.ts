@@ -6,8 +6,8 @@ import {
   AlertError,
   AlertInfo,
   AlertWarning,
-} from "@/components/alert/examples";
-import { Alert } from "@/components/alert";
+} from "@/alert/examples";
+import { Alert } from "@/alert/components";
 
 describe("Alert", () => {
   afterEach(() => {
