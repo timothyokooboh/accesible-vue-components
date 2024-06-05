@@ -6,4 +6,6 @@ Vitest and @testing-library/vue are used for tests.
 - Accordion
 - Alert
 - AlertDialog
+- ModalDialog
+- Breadcrumb
 
