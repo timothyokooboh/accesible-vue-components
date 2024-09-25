@@ -1,8 +1,7 @@
 export const useArrowNavigation = () => {
-  const handleArrowNavigation = (
-    direction: "up" | "down",
-    headerClass: string,
-  ) => {
+  const handleArrowNavigation = (event: KeyboardEvent, headerClass: string) => {
+    event.preventDefault();
+    const direction = event.key;
     const currentFocusedHeader = document.activeElement as HTMLButtonElement;
     const accordionHeaderList = Array.from(
       document.querySelectorAll(`.${headerClass}`),

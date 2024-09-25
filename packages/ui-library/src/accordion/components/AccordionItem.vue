@@ -1,5 +1,5 @@
 <template>
-  <div class="border-t border-grayScale-200">
+  <div class="border-b border-grayScale-200">
     <slot v-if="$slots.default" />
 
     <div v-else>
@@ -10,9 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, provide, inject, type Ref } from "vue";
+import { ref, provide, inject, useId, computed, type Ref } from "vue";
 import type { AccordionItem } from "@/types";
-import { useId } from "@/helpers";
 
 import {
   AccordionItemHeader,
@@ -29,35 +28,37 @@ withDefaults(
   },
 );
 
-const { currentOpenPanel, updateCurrentOpenPanel, single } = inject(
+const { currentOpenPanel, updateCurrentOpenPanel, allowSingleOpen } = inject(
   ACCORDION_CURRENT_OPEN_PANEL,
 ) as {
-  single: boolean;
+  allowSingleOpen: boolean;
   updateCurrentOpenPanel: (value: string) => void;
   currentOpenPanel: Ref<string>;
 };
 
-const panelId = useId("accordion-panel");
-const isCollapsed = ref(true);
+const headerId = "accordion-header-" + useId();
+const panelId = "accordion-panel-" + useId();
+const isToggleCollapsed = ref(true);
+const isPanelCollapsed = computed(() => {
+  return allowSingleOpen
+    ? currentOpenPanel.value !== panelId
+    : isToggleCollapsed.value;
+});
+
 const toggleCollapse = () => {
-  if (single) {
-    if (currentOpenPanel.value === panelId) {
-      updateCurrentOpenPanel("");
-    } else {
-      updateCurrentOpenPanel(panelId);
-    }
+  if (allowSingleOpen) {
+    currentOpenPanel.value === panelId
+      ? updateCurrentOpenPanel("")
+      : updateCurrentOpenPanel(panelId);
   } else {
-    isCollapsed.value = !isCollapsed.value;
+    isToggleCollapsed.value = !isToggleCollapsed.value;
   }
 };
 
-const headerId = useId("accordion-header");
 provide(ACCORDION_STATE, {
-  isCollapsed,
+  isPanelCollapsed: isPanelCollapsed,
   toggleCollapse,
   headerId,
   panelId,
 });
 </script>
-
-<style scoped></style>

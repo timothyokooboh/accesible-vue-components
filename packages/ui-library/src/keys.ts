@@ -1,7 +1,18 @@
+import type { InjectionKey, Ref } from "vue";
+
 // Accordion
-export const ACCORDION_STATE = Symbol();
-export const ACCORDION_HEADER = Symbol();
-export const ACCORDION_CURRENT_OPEN_PANEL = Symbol();
+export const ACCORDION_STATE = Symbol() as InjectionKey<{
+  isPanelCollapsed: Ref<boolean>;
+  toggleCollapse: () => void;
+  headerId: string;
+  panelId: string;
+}>;
+export const ACCORDION_HEADER = Symbol() as InjectionKey<string>;
+export const ACCORDION_CURRENT_OPEN_PANEL = Symbol() as InjectionKey<{
+  currentOpenPanel: Ref<string>;
+  allowSingleOpen: boolean;
+  updateCurrentOpenPanel: (value: string) => void;
+}>;
 
 // Alert
 export const ALERT_VARIANT = Symbol();

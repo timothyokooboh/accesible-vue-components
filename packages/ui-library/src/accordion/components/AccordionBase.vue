@@ -1,12 +1,9 @@
 <template>
   <div
-    class="border-x border-b border-grayScale-200 rounded-[5px]"
-    @keydown.up.down="
-      handleArrowNavigation($event.key as 'up' | 'down', headerClass)
-    "
+    class="border-x border-t border-grayScale-200 rounded-[5px] overflow-hidden"
+    @keydown.up.down="handleArrowNavigation($event, headerClass)"
   >
     <slot v-if="$slots.default" />
-
     <div v-else>
       <AccordionItem v-for="item in items" :item="item" :key="item.title" />
     </div>
@@ -14,33 +11,31 @@
 </template>
 
 <script setup lang="ts">
-import { ref, provide } from "vue";
+import { ref, provide, useId } from "vue";
 import type { AccordionItem as AccordionItemType } from "@/types";
 import { AccordionItem } from "@/accordion/components";
-import { useId } from "@/helpers";
 import { ACCORDION_CURRENT_OPEN_PANEL, ACCORDION_HEADER } from "@/keys";
 import { useArrowNavigation } from "@/accordion/composables/useArrowNavigation";
 
 const props = defineProps<{
   items?: AccordionItemType[];
-  single?: boolean;
+  allowSingleOpen?: boolean;
 }>();
 
 const { handleArrowNavigation } = useArrowNavigation();
-
-const headerClass = useId("accordion-header");
-provide(ACCORDION_HEADER, headerClass);
+const headerClass = "accordion-header-" + useId();
 
 const currentOpenPanel = ref("");
 const updateCurrentOpenPanel = (value: string) => {
-  if (props.single) {
-    currentOpenPanel.value = value;
-  }
+  if (!props.allowSingleOpen) return;
+  currentOpenPanel.value = value;
 };
+
+provide(ACCORDION_HEADER, headerClass);
 provide(ACCORDION_CURRENT_OPEN_PANEL, {
   currentOpenPanel,
   updateCurrentOpenPanel,
-  single: props.single,
+  allowSingleOpen: props.allowSingleOpen,
 });
 </script>
 

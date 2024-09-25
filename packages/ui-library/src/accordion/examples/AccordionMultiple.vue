@@ -11,8 +11,14 @@ import {
   <div>
     <Accordion class="w-[400px]">
       <AccordionItem>
-        <AccordionItemHeader> svelte </AccordionItemHeader>
+        <AccordionItemHeader id="tom"> svelte </AccordionItemHeader>
         <AccordionItemPanel>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+            rerum, ratione magnam cumque tempora unde placeat minima harum
+            suscipit accusamus doloremque sit nulla nostrum quis necessitatibus,
+            optio totam! Sapiente, quisquam.
+          </p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             rerum, ratione magnam cumque tempora unde placeat minima harum

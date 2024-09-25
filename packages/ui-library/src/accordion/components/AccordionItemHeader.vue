@@ -5,7 +5,7 @@
       :id="headerId"
       :aria-expanded="!isCollapsed"
       :aria-controls="panelId"
-      :class="`w-full text-left flex justify-between items-center py-[13px] px-[28px] ${headerClass}`"
+      :class="`w-full text-left flex justify-between items-center py-[13px] px-[28px] hover:bg-slate-50 ${headerClass}`"
       @click="toggleCollapse"
     >
       <div>
@@ -13,42 +13,39 @@
         <p v-else v-html="title" />
       </div>
 
-      <div>
-        <slot v-if="isCollapsed" name="toggleIcon:collapsed">
-          <ChevronDownIcon v-if="isCollapsed" class="h-4" />
-        </slot>
-        <slot v-else name="toggleIcon:unCollapsed">
-          <ChevronUpIcon class="h-4" />
-        </slot>
-      </div>
+      <ChevronUpIcon
+        class="h-4 duration-300 transition-transform"
+        :class="{ 'rotate-180': isCollapsed }"
+      />
     </button>
   </h3>
 </template>
 
 <script setup lang="ts">
-import { inject, type Ref } from "vue";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/vue/24/solid";
+import { computed, inject, useAttrs, useId, type Ref } from "vue";
+import { ChevronUpIcon } from "@heroicons/vue/24/solid";
 import { ACCORDION_HEADER, ACCORDION_STATE } from "@/keys";
 
-withDefaults(
-  defineProps<{
-    title?: string;
-  }>(),
-  {
-    title: "",
-  },
-);
+defineProps<{
+  title?: string;
+}>();
 
-const { isCollapsed, toggleCollapse, panelId, headerId } = inject(
-  ACCORDION_STATE,
-) as {
+const attrs = useAttrs();
+
+const {
+  isPanelCollapsed: isCollapsed,
+  toggleCollapse,
+  panelId,
+  headerId,
+} = inject(ACCORDION_STATE) as {
+  isPanelCollapsed: Ref<boolean>;
   toggleCollapse: () => void;
-  isCollapsed: Ref<boolean>;
   headerId: string;
   panelId: string;
 };
 
+const id = computed(
+  () => (attrs.id as string) ?? "accordion-header-" + useId(),
+);
 const headerClass = inject(ACCORDION_HEADER);
 </script>
-
-<style scoped></style>

@@ -14,8 +14,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, provide, ref, watch } from "vue";
-import { handleFocusTrapping, useId } from "@/helpers";
+import { onMounted, provide, ref, watch, useId } from "vue";
+import { handleFocusTrapping } from "@/helpers";
 import { useObserveDialog } from "@/alertDialog/composables/useObserveDialog";
 
 import {
@@ -32,8 +32,8 @@ const props = defineProps<{
 
 const dialog = ref();
 const focusableElements = ref<HTMLElement[]>([]);
-const titleId = useId("alert-dialog-title");
-const messageId = useId("alert-dialog-message");
+const titleId = "alert-dialog-title-" + useId();
+const messageId = "alert-dialog-message-" + useId();
 
 const { initMutationObserver } = useObserveDialog({
   dialogEl: dialog,

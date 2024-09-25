@@ -9,7 +9,7 @@ import {
 
 <template>
   <div>
-    <Accordion single class="w-[400px]">
+    <Accordion allowSingleOpen class="w-[400px]">
       <AccordionItem>
         <AccordionItemHeader> svelte </AccordionItemHeader>
         <AccordionItemPanel>
